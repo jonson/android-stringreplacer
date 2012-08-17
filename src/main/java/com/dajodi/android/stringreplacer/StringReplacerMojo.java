@@ -134,7 +134,7 @@ public class StringReplacerMojo extends AbstractMojo
 
                     // allow empty strings
                     if (replaceable && value != null) {
-                        getLog().info(String.format("Replacing value <string name=\"%s\">%s</string> with <string name=\"%s\">%s</string>", nameAttr.getValue(), value));
+                        getLog().info(String.format("Replacing value <string name=\"%s\"> with <string name=\"%s\">%s</string>", key, key, value));
                         hijacked = true;
 
                         List<Attribute> attributes = new LinkedList<Attribute>();
