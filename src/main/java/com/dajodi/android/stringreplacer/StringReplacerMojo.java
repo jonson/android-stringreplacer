@@ -78,6 +78,7 @@ public class StringReplacerMojo extends AbstractMojo
 
                 File source = new File(resourceDirectory, file);
                 File dest = new File(outputDirectory, file);
+                FileUtils.forceMkdir(dest.getParentFile());
 
                 if (toFilter.contains(file)) {
                     getLog().info("Strings will potentially be replace in file: " + file);
