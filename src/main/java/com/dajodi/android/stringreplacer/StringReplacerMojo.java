@@ -78,6 +78,7 @@ public class StringReplacerMojo extends AbstractMojo
 
                 File source = new File(resourceDirectory, file);
                 File dest = new File(outputDirectory, file);
+                FileUtils.forceMkdir(dest.getParentFile());
 
                 if (toFilter.contains(file)) {
                     getLog().info("Strings will potentially be replace in file: " + file);
@@ -134,7 +135,7 @@ public class StringReplacerMojo extends AbstractMojo
 
                     // allow empty strings
                     if (replaceable && value != null) {
-                        getLog().info(String.format("Replacing value <string name=\"%s\">%s</string> with <string name=\"%s\">%s</string>", nameAttr.getValue(), value));
+                        getLog().info(String.format("Replacing value <string name=\"%s\">%s</string> with <string name=\"%s\">%s</string>", nameAttr.getValue(), value, nameAttr.getValue(), value));
                         hijacked = true;
 
                         List<Attribute> attributes = new LinkedList<Attribute>();
